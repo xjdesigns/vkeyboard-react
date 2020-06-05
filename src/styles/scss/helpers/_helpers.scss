@@ -1,0 +1,86 @@
+//////////////
+// HELPERS //
+//////////////
+
+.#{$ns}all-reset {
+  all: initial;
+}
+
+.#{$ns}display-none {
+  display: none;
+}
+
+// CLICK SHIELD
+.#{$ns}click-shield {
+  position: fixed;
+  top: -9999px;
+  left: -9999px;
+  right: -9999px;
+  bottom: -9999px;
+  z-index: 1;
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+
+  &.is-open {
+    display: block;
+  }
+
+  &--no-bg {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+.#{$ns}-txt-lt {
+  text-align: left;
+}
+
+.#{$ns}-txt-ct {
+  text-align: center;
+}
+
+.#{$ns}-txt-rt {
+  text-align: right;
+}
+
+// MARGIN & PADDING
+.#{$ns}pd-reset {
+  padding: 0;
+}
+.#{$ns}mg-reset {
+  margin: 0;
+}
+@for $i from 1 through 24 {
+  @if $i % 6 == 0 {
+    .#{$ns}pd-#{$i} {
+      padding: #{$i}px;
+    }
+    .#{$ns}pd-lt-#{$i} {
+      padding-left: #{$i}px;
+    }
+    .#{$ns}pd-rt-#{$i} {
+      padding-right: #{$i}px;
+    }
+    .#{$ns}pd-tp-#{$i} {
+      padding-top: #{$i}px;
+    }
+    .#{$ns}pd-bt-#{$i} {
+      padding-bottom: #{$i}px;
+    }
+
+    .#{$ns}mg-#{$i} {
+      margin: #{$i}px;
+    }
+    .#{$ns}mg-lt-#{$i} {
+      margin-left: #{$i}px;
+    }
+    .#{$ns}mg-rt-#{$i} {
+      margin-right: #{$i}px;
+    }
+    .#{$ns}mg-tp-#{$i} {
+      margin-top: #{$i}px;
+    }
+    .#{$ns}mg-bt-#{$i} {
+      margin-bottom: #{$i}px;
+    }
+  }
+}

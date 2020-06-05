@@ -1,0 +1,15 @@
+////////////
+// IMAGE //
+////////////
+
+img {
+  width: 100%;
+
+  &.#{$ns}img { // add the class so we do not force this
+    max-width: 100%;
+  }
+
+  &.#{$ns}img--half { // half size
+    width: 50%;
+  }
+}

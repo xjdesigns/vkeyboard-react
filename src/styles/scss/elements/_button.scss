@@ -1,0 +1,180 @@
+////////////////
+// DEFAULT //
+///////////////
+$btn-radius: 24px;
+$btn-padding: 12px; // we math with this number below
+
+// BUTTON
+.#{$ns}btn {
+  display: inline-block;
+  vertical-align: middle;
+  min-width: 160px;
+  font-size: .875rem;
+  padding: $btn-padding $btn-padding * 2;
+  border-radius: $btn-radius;
+  border: 1px solid $white;
+  background-color: transparent;
+  color: $white;
+  text-align: center;
+  line-height: 1;
+  text-decoration: none;
+  transition: all .3s ease;
+
+  &:hover {
+    color: $white;
+  }
+
+  // SIZING
+  &--sm {
+    padding: $btn-padding / 2 $btn-padding;
+    min-width: 90px;
+    font-size: .7rem;
+  }
+
+  // FULL WIDTH
+  &--block {
+    display: block;
+    min-width: 100%;
+  }
+
+  &[disabled] {
+    @include is-disabled;
+  }
+}
+
+// BUTTON MATERIAL
+.#{$ns}btn {
+  &--material, &--icon {
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: attr(data-icon);
+      position: absolute;
+      top: 0;
+      right: 12px;
+      bottom: 0;
+      margin: auto;
+      font-size: inherit;
+      transition: transform .3s ease;
+    }
+
+    & > i {
+      font-size: inherit;
+      vertical-align: middle;
+    }
+  }
+
+  &--icon {
+    padding-right: 36px;
+  }
+
+  &--material {
+    padding-left: $btn-padding*2;
+    padding-right: $btn-padding*2;
+
+    &::before {
+      transform: translateX(calc(100% + 24px));
+    }
+
+    &:hover {
+      padding-left: $btn-padding;
+      padding-right: $btn-padding*3;
+
+      &::before {
+        transform: translateX(0);
+      }
+    }
+  }
+}
+
+//////////////////////
+// BUTTON CIRCLE //
+/////////////////////
+.#{$ns}btn {
+  &--circle {
+    min-width: 42px;
+    height: 42px;
+    padding: 0;
+    border-radius: 50%;
+    position: relative;
+
+    &::before {
+      content: attr(data-icon);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+  }
+
+  &--sm {
+    min-width: 26px;
+    height: 26px;
+
+    &::before {
+      line-height: 1.2;
+    }
+  }
+}
+
+///////////////////
+// BUTTON MAP //
+///////////////////
+$btn-map: (
+pr: $brand-primary,
+sd: $brand-secondary
+);
+
+///////////////////
+// CSS VARIABLES
+///////////////////
+.#{$ns}btn {
+  --pr: var(--brand-primary);
+  --sd: var(--brand-secondary);
+}
+
+@each $button, $btn in $btn-map {
+  .#{$ns}btn {
+    &--#{$button} {
+      background-color: $btn;
+      background-color: var(--#{$button});
+      border-color: $btn;
+      border-color: var(--#{$button});
+
+      &:hover {
+        background-color: transparent;
+        color: $btn;
+        color: var(--#{$button});
+      }
+    }
+    &--#{$button}--inverted {
+      background-color: transparent;
+      color: $btn;
+      color: var(--#{$button});
+      border-color: $btn;
+      border-color: var(--#{$button});
+
+      &:hover {
+        background-color: $btn;
+        background-color: var(--#{$button});
+        color: white;
+      }
+    }
+  }
+  .#{$ns}btn-group {
+    &--#{$button} {
+      border-color: $btn;
+      border-color: var(--#{$button});
+
+      .btn-group__btn {
+        background-color: $btn;
+        background-color: var(--#{$button});
+
+        &:hover {
+          background-color: transparent;
+          color: $btn;
+          color: var(--#{$button});
+        }
+      }
+    }
+  }
+}

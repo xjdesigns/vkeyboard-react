@@ -1,0 +1,22 @@
+// NOTE: These styles are only for the display
+.vk-main {
+  position: relative;
+  height: 100vh;
+}
+
+.vk-form {
+  width: 80vw;
+  margin: auto;
+  padding: 24px;
+}
+
+.vk-input {
+  padding: 12px;
+  margin-bottom: 12px;
+  min-height: 44px;
+  border: 1px solid var(--grey-l1);
+
+  &.is-active {
+    border-color: var(--brand-primary);
+  }
+}

@@ -1,0 +1,73 @@
+// TOGGLE BUTTON
+
+// CSS VARIABLES
+.#{$ns}tgl {
+  --bg-inactive: var(--grey-d1);
+  --bg-active: var(--brand-primary);
+  --thumb: white;
+}
+
+.#{$ns}tgl {
+  .#{$ns}tgl-input {
+    opacity: 0;
+    position: absolute;
+
+    &:focus {
+      + .#{$ns}tgl-btn {
+        box-shadow: 0px 0px 3px $brand-primary;
+      }
+    }
+
+    + .#{$ns}tgl-btn {
+      outline: 0;
+      display: block;
+      width: 48px;
+      height: 24px;
+      position: relative;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
+      background: $grey-d1;
+      background: var(--bg-inactive);
+      border-radius: 2em;
+      padding: 2px;
+      transition: all .4s ease;
+
+      &::before,
+      &::after {
+        content: '';
+        position: relative;
+        display: block;
+        width: 50%;
+        height: 100%;
+      }
+
+      &::before {
+        display: none;
+      }
+
+      &::after {
+        left: 0;
+
+        border-radius: 50%;
+        background: white;
+        background: var(--thumb);
+        transition: all .2s ease;
+      }
+    }
+
+    &:checked {
+      + .#{$ns}tgl-btn {
+        background: $brand-primary;
+        background: var(--bg-active);
+
+        &::after {
+          left: 50%;
+        }
+      }
+    }
+  }
+}

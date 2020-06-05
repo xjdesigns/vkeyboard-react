@@ -1,0 +1,184 @@
+export const KEYMAP_R1 = [{
+  value: 'q',
+  shiftValue: '1',
+  capValue: 'Q',
+  icon: '',
+}, {
+  value: 'w',
+  shiftValue: '2',
+  capValue: 'W',
+  icon: '',
+}, {
+  value: 'e',
+  shiftValue: '3',
+  capValue: 'E',
+  icon: '',
+}, {
+  value: 'r',
+  shiftValue: '4',
+  capValue: 'R',
+  icon: '',
+}, {
+  value: 't',
+  shiftValue: '5',
+  capValue: 'T',
+  icon: '',
+}, {
+  value: 'y',
+  shiftValue: '6',
+  capValue: 'Y',
+  icon: '',
+}, {
+  value: 'u',
+  shiftValue: '7',
+  capValue: 'U',
+  icon: '',
+}, {
+  value: 'i',
+  shiftValue: '8',
+  capValue: 'I',
+  icon: '',
+}, {
+  value: 'o',
+  shiftValue: '9',
+  capValue: 'O',
+  icon: '',
+}, {
+  value: 'p',
+  shiftValue: '0',
+  capValue: 'P',
+  icon: '',
+}, {
+  value: 'backspace', //  this values we will catch inside the container to handle
+  shiftValue: '',
+  capValue: '',
+  icon: 'delete', // For icons you could handle this in the keyboard itselt or here
+  // not sure which is preferred, writing this framework agnostic would define that maybe
+  // but we are creating this to be react specific
+}]
+
+export const KEYMAP_R2 = [{
+  value: 'a',
+  shiftValue: '@',
+  capValue: 'A',
+  icon: '',
+}, {
+  value: 's',
+  shiftValue: '#',
+  capValue: 'S',
+  icon: '',
+}, {
+  value: 'd',
+  shiftValue: '$',
+  capValue: 'D',
+  icon: '',
+}, {
+  value: 'f',
+  shiftValue: '&',
+  capValue: 'F',
+  icon: '',
+}, {
+  value: 'g',
+  shiftValue: '*',
+  capValue: 'G',
+  icon: '',
+}, {
+  value: 'h',
+  shiftValue: '(',
+  capValue: 'H',
+  icon: '',
+}, {
+  value: 'j',
+  shiftValue: ')',
+  capValue: 'J',
+  icon: '',
+}, {
+  value: 'k',
+  shiftValue: '\'',
+  capValue: 'K',
+  icon: '',
+}, {
+  value: 'l',
+  shiftValue: '"',
+  capValue: 'L',
+  icon: '',
+}, {
+  value: 'enter',
+  shiftValue: '',
+  capValue: '',
+  icon: '',
+}]
+
+export const KEYMAP_R3 = [{
+  value: 'shift',
+  shiftValue: '',
+  capValue: '',
+  icon: 'shift',
+}, {
+  value: 'z',
+  shiftValue: '%',
+  capValue: 'Z',
+  icon: '',
+}, {
+  value: 'x',
+  shiftValue: '-',
+  capValue: 'X',
+  icon: '',
+}, {
+  value: 'c',
+  shiftValue: '+',
+  capValue: 'C',
+  icon: '',
+}, {
+  value: 'v',
+  shiftValue: '=',
+  capValue: 'V',
+  icon: '',
+}, {
+  value: 'b',
+  shiftValue: '/',
+  capValue: 'B',
+  icon: '',
+}, {
+  value: 'n',
+  shiftValue: ';',
+  capValue: 'N',
+  icon: '',
+}, {
+  value: 'm',
+  shiftValue: ':',
+  capValue: 'M',
+  icon: '',
+}, {
+  value: ',',
+  shiftValue: '!',
+  capValue: '',
+  icon: '',
+}, {
+  value: '.',
+  shiftValue: '?',
+  capValue: '.',
+  icon: '',
+}, {
+  value: 'shift',
+  shiftValue: '',
+  capValue: '',
+  icon: 'shift',
+}]
+
+export const KEYMAP_R4 = [{
+  value: 'cap',
+  shiftValue: '',
+  capValue: '',
+  icon: 'cap',
+}, {
+  value: 'spacebar',
+  shiftValue: '',
+  capValue: '',
+  icon: '',
+}, {
+  value: 'close',
+  shiftValue: '',
+  capValue: '',
+  icon: 'close',
+}]

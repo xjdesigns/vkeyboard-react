@@ -1,0 +1,9 @@
+@mixin is-disabled {
+  pointer-events: none;
+  opacity: .4;
+  cursor: not-allowed;
+}
+
+.#{$ns}is-disabled {
+  @include is-disabled;
+}

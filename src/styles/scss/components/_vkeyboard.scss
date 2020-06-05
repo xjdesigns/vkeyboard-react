@@ -1,0 +1,43 @@
+.vk-vkeyboard-wrap {
+  &.is-fixed {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+}
+
+.vk-vkeyboard {
+  display: flex;
+  flex-flow: nowrap row;
+  padding: 6px;
+  background: var(--grey-l1);
+
+  &__action {
+    flex: 1;
+    margin-right: 12px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &[data-which="spacebar"] {
+      flex: 4 0 auto;
+    }
+  }
+}
+
+.vk-vkey-btn {
+  padding: 12px;
+  display: block;
+  width: 100%;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4);
+
+  &.is-active {
+    background: var(--brand-primary);
+    color: white;
+  }
+}

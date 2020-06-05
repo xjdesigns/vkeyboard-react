@@ -1,0 +1,84 @@
+// RADIO BUTTONS
+// CHECKBOX/RADIO //
+
+// CSS VARIABLES
+.#{$ns}radio {
+  --label: var(--grey-l1);
+  --radio-hover: var(--grey-d1);
+  --radio-active: var(--brand-primary);
+  --radio-inactive: var(--grey-l1);
+}
+
+.#{$ns}radio {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 24px;
+  font-size: .875rem;
+  line-height: 1.2;
+  margin-right: 12px;
+  color: $grey-l1;
+  color: var(--label);
+  cursor: pointer;
+
+  // RADIO
+  input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+
+    &:focus + .#{$ns}radio__dot {
+      &::before {
+        background-color: $grey-d1;
+        background-color: var(--radio-hover);
+        transform: scale(.5);
+        z-index: 2;
+      }
+    }
+
+    &:checked + .#{$ns}radio__dot {
+      &::before {
+        background-color: $primary;
+        background-color: var(--radio-active);
+        transform: scale(.5);
+        z-index: 2;
+      }
+    }
+  }
+  .#{$ns}radio__dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid $grey-l1;
+    border: 1px solid var(--radio-inactive);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+    margin: auto;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      z-index: 1;
+      border-radius: 50%;
+      transform: scale(0);
+      transition: transform .3s;
+    }
+  }
+
+  &:hover {
+    .#{$ns}radio__dot::before {
+      background-color: $grey-d1;
+      background-color: var(--radio-hover);
+      transform: scale(.5);
+      transition: transform .3s ease, color .3s ease;
+    }
+  }
+}

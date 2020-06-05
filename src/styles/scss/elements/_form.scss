@@ -1,0 +1,75 @@
+// FORMS
+
+// CSS VARIABLES
+.#{$ns}form,
+.#{$ns}select {
+  --label: var(--grey-l1);
+  --bg: white;
+  --border: var(--grey-l1);
+  --border-active: var(--brand-primary);
+  --field-error: var(--brand-error);
+  --is-disabled: var(--grey-l1);
+}
+
+.#{$ns}form {
+  input, textarea, label {
+    width: 100%;
+    font-size: .75rem;
+
+    &:focus:not(label), &:active:not(label) {
+      outline: 0;
+      border: 1px solid $brand-primary;
+      border: 1px solid var(--border-active);
+    }
+  }
+
+  input, textarea {
+    background: white;
+    background: var(--bg);
+    border: 1px solid $grey-l1;
+    border: 1px solid  var(--border);
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  // LABEL //
+  .#{$ns}label {
+    display: block;
+    font-size: .75rem;
+    margin-bottom: 3px;
+    color: $grey-l1;
+    color: var(--label)
+  }
+
+  // INPUT
+  .#{$ns}input,
+  .#{$ns}textarea {
+    &[disabled] {
+      @include is-disabled;
+
+      &:focus,
+      &:active {
+        border-color: var(--is-disabled);
+      }
+    }
+
+    // ERROR STATE
+    &.has-error {
+      border-color: $error;
+      border-color: var(--field-error);
+      color: $error;
+      color: var(--field-error);
+    }
+  }
+
+  // search
+  .#{$ns}search {
+    .#{$ns}input {
+      &[type=search] {
+        width: calc(100% - 62px);
+        margin-right: 6px;
+      }
+    }
+  }
+}
