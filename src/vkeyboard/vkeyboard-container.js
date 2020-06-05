@@ -34,7 +34,6 @@ export const VKeyboardContainer = () => {
       const values = JSON.stringify(inputValues)
       window.alert(`You clicked enter with a saved value of ${values}`)
     } else {
-      console.warn(' I am here')
       const prev = inputValues[whichInput]
       const newValue = joinValues(prev, val)
       setInputValues({
