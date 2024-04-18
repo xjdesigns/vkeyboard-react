@@ -1,13 +1,16 @@
 {
   "name": "vkeyboard-react",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "0.0.2",
   "type": "module",
   "main": "dist/js-virtual-keyboard.js",
   "exports": {
     ".": "./dist/js-virtual-keyboard.js",
     "./core.css": "./dist/style.css"
   },
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build && esbuild dist/js-virtual-keyboard.js --minify --outfile=dist/js-virtual-keyboard.js --allow-overwrite",
