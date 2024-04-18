@@ -1,68 +1,95 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Virtual Keyboard
 
-## Available Scripts
+A React component for a virtual keyboard with several options.
 
-In the project directory, you can run:
+## Install
+Install the package from npm and use inside your application.
 
-### `npm start`
+``` javascript
+npm i js_virtual_keyboard
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Then add to your application.
+``` javascript
+import { VKeyboard, DEFAULT_KEY_MAP } from 'js-virtual-keyboard'
+import 'js-virtual-keyboard/core.css'
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<div>
+  <VKeyboard
+    keyMappings={DEFAULT_KEY_MAP}
+    keypressHandler={val => console.warn(val)}
+    fixedToScreen
+  />
+</div>
+```
 
-### `npm test`
+> NOTE: The package comes with a default keyboard layout but you can provide your own values to manage.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Props
+Rewact component props for virtual keyboard.
 
-### `npm run build`
+| Prop | Type |
+| ---- | ---- |
+| keyMappings | Array |
+| keypressHandler | Function |
+| fixedToScreen | Boolean |
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Key Mappings
+You can either use the provided DEFAULT_KEY_MAP or create your own.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Key mappings have 5 values you can define. Value is required, shiftValue and capValue depend on if you provide a shift and/or a cap key. If `blackSpace` is set to true then all other values are ignored and will use a black space instead.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+``` javascript
+const KEY_MAP_SET = [{
+  value: 'q', // required
+  shiftValue: '1',
+  capValue: 'Q',
+  icon: '',
+  blankSpace: true,
+  size: 1 // Supported values are 1 - 4
+}]
+```
+ The prop value passed is an array of array/objects like so. Each inner array is a new row for the virtual keyboard component.
 
-### `npm run eject`
+ ``` javascript
+const FULL_MAP = [
+  [{ ... }],
+  [{ ... }],
+  [{ ... }]
+]
+ ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Callback Function
+The virtual keyboard provides a callback function of the value being clicked. You are able to consume this value and handle for the applications needs. If you provide shift or cap values inside your key mappings these values will be returned.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+``` javascript
+const cbFunc = val => {
+  ... Do something with value
+}
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<VKeyboard
+  ...
+  keypressHandler={cbFunc}
+/>
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Styling
+You can customize the virtual keyboard using CSS custom variables.
 
-## Learn More
+``` css
+:root {
+  --vk-bg: #555;
+  --vk-x-padding: 6px;
+  --vk-y-padding: 6px;
+  --vbtn-radius: 6px;
+  --vbtn-bg: #fff;
+  --vbtn-color: #000;
+  --vbtn-bg-active: #33339b;
+  --vbtn-color-active: var(--vbtn-bg);
+  --vbtn-x-padding: 12px;
+  --vbtn-y-padding: 12px;
+  --vbtn-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4);
+}
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+The virtual keyboard uses a global css style and classes. If you would like to further customize or write your own look at the stylesheet provided with the package or inspect the DOM.

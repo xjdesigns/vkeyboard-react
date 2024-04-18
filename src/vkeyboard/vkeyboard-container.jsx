@@ -1,5 +1,8 @@
+/* eslint-disable */
 import React, { useState } from 'react'
 import VKeyboard from './vkeyboard'
+import { KEYMAP_R1, KEYMAP_R2, KEYMAP_R3, KEYMAP_R4 } from './vkeyboard-map'
+import './style.scss'
 
 // https://www.npmjs.com/package/helping_hand
 // https://github.com/xjdesigns/HelpingHand/blob/master/src/valueHelper.ts
@@ -20,7 +23,7 @@ export const VKeyboardContainer = () => {
   })
 
   const keypressHandler = val => {
-    console.warn('val')
+    console.warn('val', val)
     if (val === 'delete') {
       const prev = inputValues[whichInput]
       const newValue = removeLastChar(prev)
@@ -79,11 +82,20 @@ export const VKeyboardContainer = () => {
         >
           {maskPassword(inputValues[PASS_VALUE])}
         </div>
-        <button onClick={() => setShowPassword(!showPassword)}>Show password</button>
+        <button className="spx-btn spx-btn--pr" onClick={() => setShowPassword(!showPassword)}>Show password</button>
       </div>
 
       {keyboardOpen && (
-        <VKeyboard keypressHandler={keypressHandler} fixedToScreen />
+        <VKeyboard
+          keypressHandler={keypressHandler}
+          keyMappings={[
+            KEYMAP_R1,
+            KEYMAP_R2,
+            KEYMAP_R3,
+            KEYMAP_R4
+          ]}
+          fixedToScreen
+        />
       )}
     </div>
   )
