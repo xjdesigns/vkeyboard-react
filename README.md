@@ -6,7 +6,7 @@ A React component for a virtual keyboard with several options.
 Install the package from npm and use inside your application.
 
 ``` javascript
-npm i js_virtual_keyboard
+npm i vkeyboard-react
 ```
 
 Then add to your application.
